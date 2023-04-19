@@ -9,9 +9,8 @@ class Veiculos(Resource):
         cur = self.db.connection.cursor()
         keys = ['id', 'placa', 'descricao', 'status']
         cur.execute(
-            '''SELECT id, placa, descricao, status FROM tlm_cad_veiculo LEFT JOIN tlm_sts_veiculo ON tlm_cad_veiculo.id = tlm_sts_veiculo.veiculo_id LIMIT 10''')
-        items = cur.fetchall()
-        print(items)
+            '''SELECT id, placa, descricao, status FROM tlm_cad_veiculo LEFT JOIN tlm_sts_veiculo ON tlm_cad_veiculo.id = tlm_sts_veiculo.veiculo_id LIMIT 500''')
+        items = cur.fetchall()        
         for item in items:
             obj_item = {}
             for (index, key) in enumerate(item):
